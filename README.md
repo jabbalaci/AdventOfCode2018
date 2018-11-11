@@ -1,7 +1,8 @@
 Advent of Code 2018
 ===================
 
-Last year I solved [AoC 2017](https://adventofcode.com/2017) in Kotlin.
+Last year I solved [AoC 2017](https://adventofcode.com/2017) in Kotlin
+(see my repo [here](https://github.com/jabbalaci/aoc2017)).
 This year I plan to solve [AoC 2018](https://adventofcode.com/2018/) in Nim.
 
 If I get stuck, I might change to Python :), but the goal is to solve the exercises
