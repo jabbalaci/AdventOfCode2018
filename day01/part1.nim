@@ -5,8 +5,8 @@ import math
 
 proc main() =
   let
-    text = readFile("input.txt").strip().splitlines()
-    result = text.mapIt(it.parseInt).sum
+    lines = readFile("input.txt").strip().splitlines()
+    result = lines.map(parseInt).sum
 
   echo result
 
