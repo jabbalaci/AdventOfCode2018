@@ -37,7 +37,7 @@ proc main() =
 # ############################################################################
 
 when isMainModule:
-  let t0 = cpuTime()
+  let t0 = epochTime()
   main()
-  let t1 = cpuTime()
+  let t1 = epochTime()
   echo &"# elapsed time: {t1 - t0} sec."
