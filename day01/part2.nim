@@ -1,8 +1,11 @@
-import strutils
-import strformat
+import intsets
+import math
+import os
 import sequtils
 import sets
-import math
+import strformat
+import strutils
+import times
 
 # see lib/ for a local copy
 from itertools import cycle    # nimble install itertools
@@ -19,7 +22,8 @@ proc main() =
   var
     frequency = 0
     # thanks to narimiran for figuring out how to speed up the sets
-    seen = initSet[int](2 ^ 17)    # 131_072
+    # seen = initSet[int](2 ^ 17)    # 131_072
+    seen = initIntSet()
 
   seen.incl(frequency)
 
@@ -34,4 +38,7 @@ proc main() =
 # ############################################################################
 
 when isMainModule:
+  let t0 = cpuTime()
   main()
+  let t1 = cpuTime()
+  echo &"# runtime: {t1 - t0} sec."
