@@ -1,6 +1,5 @@
 import intsets
 import math
-import os
 import sequtils
 import sets
 import strformat
@@ -41,4 +40,4 @@ when isMainModule:
   let t0 = cpuTime()
   main()
   let t1 = cpuTime()
-  echo &"# runtime: {t1 - t0} sec."
+  echo &"# elapsed time: {t1 - t0} sec."
