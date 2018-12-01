@@ -2,6 +2,7 @@ import strutils
 import strformat
 import sequtils
 import sets
+import math
 
 
 proc main() =
@@ -14,9 +15,12 @@ proc main() =
 
   var
     frequency = 0
-    seen = toSet([frequency])
+    # thanks to narimiran for figuring out how to speed up the sets
+    seen = initSet[int](2 ^ 17)    # 131_072
     idx = 0
     iterations = 1
+
+  seen.incl(frequency)
 
   while true:
     let n = numbers[idx]
