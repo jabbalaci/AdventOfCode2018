@@ -20,3 +20,11 @@ Versions
 * Nim: 0.19.0
 * Python: 3.7.1
 * Operating system: Linux
+
+Awesome AoC
+-----------
+
+* [Awesome AoC](https://github.com/Bogdanp/awesome-advent-of-code) is a collection of
+  awesome resources related to the yearly Advent of Code challenge
+* Awesome AoC / [Nim](https://github.com/Bogdanp/awesome-advent-of-code#nim)
+* Awesome AoC / [Python](https://github.com/Bogdanp/awesome-advent-of-code#python)
