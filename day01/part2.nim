@@ -7,9 +7,9 @@ import math
 
 proc main() =
   let
-    text = readFile("input.txt").strip().splitlines()
+    lines = readFile("input.txt").strip().splitlines()
     # text = readFile("example.txt").strip().splitlines()
-    numbers = text.mapIt(it.parseInt)
+    numbers = lines.map(parseInt)
 
   # echo numbers
 
