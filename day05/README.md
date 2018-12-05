@@ -15,3 +15,14 @@ Runtimes of Part 2:
 
 * not optimized: 6.26 sec
 * optimized: 2.99 sec
+
+Update
+------
+
+After solving the exercise, I looked around on /r/adventodcode , and someone
+said (s)he used a stack. And then I realized that I should have also used a
+stack!
+
+I re-implemented `reduce_polymer()` with a stack and it became ultra fast :)
+
+New runtime of Part 2: 0.03 sec

@@ -4,31 +4,52 @@ import strutils
 const
   diff* = ord('a') - ord('A')    # 32, a feature of the ASCII table
 
-# optimized version
+
+# even better, using a stack, version 2
 func reduce_polymer*(text: string): string =
-  result = text
+  var
+    stack = newSeq[char]()
 
-  var i = 0
-  
-  # echo result
-  while i < result.high:
-    let
-      j = i + 1
-      a = result[i]
-      b = result[j]
-
-    if abs(ord(a) - ord(b)) == diff:
-      result[i] = '.'
-      result[j] = '.'
-      result = result.replace(".", "")
-      i -= 1
+  for c in text:
+    if stack.len == 0:
+      stack &= c
       continue
-    # else
-    i += 1
+    # else, the stack is not empty
+    let top = stack[^1]
+    if abs(ord(c) - ord(top)) == diff:
+      discard stack.pop()
+    else:
+      stack &= c
   # endfor
 
+  stack.join
 
-# original idea, slower version
+
+# optimized, version 1
+# func reduce_polymer*(text: string): string =
+#   result = text
+
+#   var i = 0
+  
+#   # echo result
+#   while i < result.high:
+#     let
+#       j = i + 1
+#       a = result[i]
+#       b = result[j]
+
+#     if abs(ord(a) - ord(b)) == diff:
+#       result[i] = '.'
+#       result[j] = '.'
+#       result = result.replace(".", "")
+#       i -= 1
+#       continue
+#     # else
+#     i += 1
+#   # endfor
+
+
+# original idea, slow, version 0
 # func reduce_polymer*(text: string): string =
 #   result = text
   
