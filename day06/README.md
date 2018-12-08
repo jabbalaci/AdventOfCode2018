@@ -1,7 +1,7 @@
 Notes
 =====
 
-With [GraphViz](https://www.graphviz.org/), I made some visualizations.
+Here is some simple visualization of the datasets.
 
 example
 -------
