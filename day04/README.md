@@ -1,6 +1,8 @@
 Notes
 =====
 
+Link to the exercise: https://adventofcode.com/2018/day/4
+
 This one was a bit tough :) I had to think it over
 how to aggregate several input lines into one structure.
 

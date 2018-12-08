@@ -1,6 +1,8 @@
 Notes
 =====
 
+Link to the exercise: https://adventofcode.com/2018/day/1
+
 At first, [part2.nim](part2.nim) was much slower than the [Python solution](part2.py).
 At IRC we figured out that this line caused the problem:
 

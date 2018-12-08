@@ -1,6 +1,8 @@
 Notes
 =====
 
+Link to the exercise: https://adventofcode.com/2018/day/6
+
 Here is some simple visualization of the datasets.
 
 example

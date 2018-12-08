@@ -1,6 +1,8 @@
 Notes
 =====
 
+Link to the exercise: https://adventofcode.com/2018/day/7
+
 With [GraphViz](https://www.graphviz.org/), I made some visualizations.
 
 example
