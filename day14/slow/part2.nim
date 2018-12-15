@@ -1,30 +1,32 @@
-import sequtils
 import strformat
 import strutils
 
+
+func toInt(digit: char): int =
+  parseInt($digit)
 
 # class Kitchen #############################################################
 
 type
   Kitchen = ref object
-    recipes: seq[int]
+    recipes: string
     elf1_idx, elf2_idx: int
 
 proc add_new_recipes_and_move_the_elves(self: Kitchen) =
   let
-    total = self.recipes[self.elf1_idx] + self.recipes[self.elf2_idx]
-    digits = toSeq($total).mapIt(($it).parseInt)
-  #
-  self.recipes &= digits
+    total = self.recipes[self.elf1_idx].toInt + self.recipes[self.elf2_idx].toInt
+  
+  self.recipes &= $total
+
   let last_index = self.recipes.high
-  #
-  for i in 1 .. (self.recipes[self.elf1_idx] + 1):
+
+  for i in 1 .. (self.recipes[self.elf1_idx].toInt + 1):
     inc self.elf1_idx
     if self.elf1_idx > last_index:
       self.elf1_idx = 0
     #
   #
-  for i in 1 .. (self.recipes[self.elf2_idx] + 1):
+  for i in 1 .. (self.recipes[self.elf2_idx].toInt + 1):
     inc self.elf2_idx
     if self.elf2_idx > last_index:
       self.elf2_idx = 0
@@ -40,26 +42,37 @@ proc `$`(self: Kitchen): string =
       elems &= $value
   #
   elems.join(" ")
-      
+
 # endclass Kitchen ##########################################################
 
 proc main() =
   let
-    (recipes_before, recipes_after) = (793061, 10)    # my input
-  var
-    kitchen = Kitchen(recipes: @[3, 7], elf1_idx: 0, elf2_idx: 1)
+    # to_find = "51589"
+    # to_find = "01245"
+    # to_find = "92510"
+    # to_find = "59414"
+    to_find = "793061"    # my input
 
+  var
+    kitchen = Kitchen(recipes: "37", elf1_idx: 0, elf2_idx: 1)
 
   # echo kitchen
-  while kitchen.recipes.len < (recipes_before + recipes_after):
-    kitchen.add_new_recipes_and_move_the_elves()
-    # echo kitchen
-  #
-  let
-    idx = recipes_before
-    result = kitchen.recipes[idx ..< idx + recipes_after].join
+  var cnt = 0
+  while true:
+    let found_at_idx = kitchen.recipes.rfind(to_find)
 
-  echo result
+    if found_at_idx == -1:    # not found
+      kitchen.add_new_recipes_and_move_the_elves()
+      inc cnt
+    else:
+      # echo kitchen
+      let result = found_at_idx
+      echo result
+      break
+    # echo kitchen
+  # endwhile
+
+  echo "# steps: ", cnt
 
 # ############################################################################
 
