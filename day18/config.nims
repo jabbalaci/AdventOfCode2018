@@ -1,0 +1,1 @@
+switch("boundChecks", "on")
