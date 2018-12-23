@@ -1,0 +1,25 @@
+     e = 123;
+     do {
+         e &= 0x1c8;
+     } while e != 72;
+     e = 0;
+     do {
+         d = e | 0x10000;
+         e = 10552971;
+ 8:      f = d & 0xff;
+         e += f;
+         e &= 0xffffff;
+         e *= 65899;
+         e &= 0xffffff;
+         if 256 <= d {
+             f = 0;
+18:          c = f + 1;
+             c *= 256;
+             if c <= d {
+                 f += 1;
+                 goto 18;
+             }
+             d = f;
+             goto 8;
+         }
+     } while e != a;
