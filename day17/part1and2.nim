@@ -202,20 +202,17 @@ func has_snakes_alive(self: SnakeList): bool =
 
 # ###########################################################################
 
-func get_part1_result(m: Matrix, top_row, bottom_row: int): int =
-  let
-    watery = ['~', '|']
+func get_results(m: Matrix, top_row, bottom_row: int): tuple[part1, part2: int] =
   var
-    total = 0
+    tildes = 0
+    pipes = 0
+
   for row_idx in top_row .. bottom_row:
     let row = m[row_idx]
-    for c in row:
-      if c in watery:
-        total += 1
-      #
-    #
+    tildes += row.count('~')
+    pipes += row.count('|')
   #
-  result = total
+  (tildes + pipes, tildes)
 
 proc display(m: Matrix, top_left, bottom_right: Point): string =
   for row in m:
@@ -335,9 +332,10 @@ proc main() =
   # echo snakeList.snakes_alive()
 
   let
-    part1_result = get_part1_result(m, top_row, bottom_row)
+    (part1, part2) = get_results(m, top_row, bottom_row)
 
-  echo "Part 1: ", part1_result
+  echo "Part 1: ", part1
+  echo "Part 2: ", part2
 
 # ############################################################################
 
